@@ -49,12 +49,12 @@ source .venv/bin/activate   # (on Mac/Linux/WSL)
 
 pip install -r requirements.txt
 ```
-This spins up Kafka, Zookeeper, and Kafdrop using Docker Compose
 
 ### 3. Start Kafka and Kafdrop
 ```bash
 make up
 ```
+This spins up Kafka, Zookeeper, and Kafdrop using Docker Compose
 
 ### 4. Run the Producer
 ```bash
