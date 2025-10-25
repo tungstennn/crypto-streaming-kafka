@@ -1,7 +1,3 @@
-# ==============================
-# Makefile for Crypto Streaming Project
-# ==============================
-
 # Python virtual environment path
 VENV = .venv
 
