@@ -1,8 +1,7 @@
 # ⚡ Real-Time Crypto Streaming with Kafka
 
 This project demonstrates a **real-time data streaming pipeline** using **Apache Kafka**, **Python**, and **Streamlit**.  
-It streams live Bitcoin (BTC/USDT) prices from the Binance **WebSocket API**, processes them through a **Kafka producer**,  
-and visualizes them on a real-time dashboard.
+It streams live Bitcoin (BTC/USDT) prices from the Binance **WebSocket API**, processes them through a **Kafka producer**, and visualizes them on a real-time dashboard.
 
 ---
 
