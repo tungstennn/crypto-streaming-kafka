@@ -75,7 +75,7 @@ make dashboard
 
 ### Other useful commands
 ```bash
-make down               # Stop nad remove containers
+make down               # Stop and remove containers
 make clean              # Remove cache and volumes
 make deactivate         # Deactivate virtual env 
 ```
