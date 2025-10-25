@@ -6,7 +6,7 @@ and visualizes them on a real-time dashboard.
 
 ---
 
-## 🧩 Architecture Overview
+## Architecture Overview
 
 **Flow:**  
 Binance WebSocket API → Kafka Producer → Kafka Broker (via Docker) → Kafka Consumer / Streamlit Dashboard
