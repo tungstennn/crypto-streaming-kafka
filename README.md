@@ -1,5 +1,3 @@
-# crypto-streaming-kafka
-
 # ⚡ Real-Time Crypto Streaming with Kafka
 
 This project demonstrates a **real-time data streaming pipeline** using **Apache Kafka**, **Python**, and **Streamlit**.  
