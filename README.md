@@ -1,14 +1,84 @@
 # crypto-streaming-kafka
 
-This project demonstrates a real-time cryptocurrency data streaming pipeline using Apache Kafka, Python, and Docker. 
+# ⚡ Real-Time Crypto Streaming with Kafka
 
+This project demonstrates a **real-time data streaming pipeline** using **Apache Kafka**, **Python**, and **Streamlit**.  
+It streams live Bitcoin (BTC/USDT) prices from the Binance **WebSocket API**, processes them through a **Kafka producer**,  
+and visualizes them on a real-time dashboard.
 
-It continuously streams live trade data for Bitcoin (BTC/USDT) from the Binance WebSocket API and publishes each message to a Kafka topic named `crypto_prices`. The system is containerized with Docker Compose, which runs Kafka, Zookeeper, and Kafdrop (a lightweight web UI for monitoring Kafka topics and message flow). A Python producer script ingests the data in real time, appending both a raw event timestamp and a human-readable UTC timestamp for clarity and traceability. A Python consumer script can then subscribe to the same topic and display messages as they arrive, enabling near real-time analytics or downstream integration. Overall, this project provides a practical introduction to event-driven architectures, message queuing, and real-time data pipelines, ideal for learning how to build scalable streaming systems for data engineering or analytics use cases.
+---
 
+## 🧩 Architecture Overview
 
-### Components
-- **Docker** — runs Kafka, Zookeeper, and Kafdrop.
-- **Kafka Broker** — message queue where all live crypto trades are published.
-- **Producer (Python)** — connects to Binance WebSocket and streams trade data into Kafka.
-- **Consumer (Python)** — subscribes to the Kafka topic and prints or processes messages.
-- **Kafdrop** — web-based Kafka UI for inspecting topics and messages.
+**Flow:**  
+Binance WebSocket API → Kafka Producer → Kafka Broker (via Docker) → Kafka Consumer / Streamlit Dashboard
+
+**Components:**
+- **WebSocket API** – Streams live crypto price updates from Binance.  
+- **Producer (Python)** – Connects to Binance and sends each trade message into a Kafka topic.  
+- **Kafka Broker (Docker)** – Buffers, stores, and distributes the stream.  
+- **Consumer (Python)** – Reads from the Kafka topic and prints/logs the stream.  
+- **Kafdrop** – Web UI to inspect Kafka topics and messages.  
+- **Streamlit Dashboard** – Displays live Bitcoin price updates visually.
+  
+---
+
+## Key Takeaways
+- Websocket API streams real time market data
+- Kafka acts as a buffer + message broket for scalability and reliability
+- Streamlit provides a simple live visualisation layer
+
+This setup models a real world streaming data architecture, from ingestion to processing to visualisation
+
+---
+
+## Setup Instructions
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/<your-username>/crypto-streaming-kafka.git
+cd crypto-streaming-kafka
+```
+
+### 2. Create / activate a virtual environment and install dependencies
+```bash 
+python -m venv .venv
+source .venv/bin/activate   # (on Mac/Linux/WSL)
+# or
+.venv\Scripts\activate      # (on Windows)
+
+pip install -r requirements.txt
+```
+This spins up Kafka, Zookeeper, and Kafdrop using Docker Compose
+
+### 3. Start Kafka and Kafdrop
+```bash
+make up
+```
+
+### 4. Run the Producer
+```bash
+make producer
+```
+`http://localhost:9000/` to access Kafdrop
+
+Streams live BTC/USDT prices into Kafka topic crypto_prices
+
+### 5. Run the Consumer (optional)
+```bash
+make consumer
+```
+Prints streamed messages to the terminal
+
+### 6. Launch the Dashboard (optional)
+```bash
+make dashboard
+```
+
+### Other useful commands
+```bash
+make down               # Stop nad remove containers
+make clean              # Remove cache and volumes
+make deactivate         # Deactivate virtual env 
+```
+
