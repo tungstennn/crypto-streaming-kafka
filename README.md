@@ -22,11 +22,13 @@ Binance WebSocket API → Kafka Producer → Kafka Broker (via Docker) → Kafka
 ---
 
 ## Key Takeaways
-- Websocket API streams real time market data
-- Kafka acts as a buffer + message broket for scalability and reliability
-- Streamlit provides a simple live visualisation layer
+Through this project, I deepened my understanding of:
+- How WebSocket APIs enable continuous, real-time data streaming.
+- The difference between WebSockets and REST APIs — WebSockets maintain an open connection for instant updates.
+- Why introducing Kafka as a middle layer (instead of connecting consumers directly to WebSockets) improves scalability, reliability, fault tolerance, and data replayability.
+- How Streamlit can be used to visualize real-time data in a lightweight, responsive dashboard.
 
-This setup models a real world streaming data architecture, from ingestion to processing to visualisation
+Overall, this project helped me connect the dots between data ingestion, stream processing, and real-time analytics.
 
 ---
 
