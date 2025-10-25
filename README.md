@@ -32,6 +32,30 @@ Overall, this project helped me connect the dots between data ingestion, stream 
 
 ---
 
+## Future Improvements
+
+There are several directions to extend this project for more practical, production-like use:
+1. Integrate a database sink (PostgreSQL, MongoDB, or S3)
+    - Store historical trade data from Kafka for long-term analysis
+    - Enables querying and trend analytics beyond the short-lived Kafka retention window
+
+2. Batch or micro-batch ingestion pipeline
+
+    - Use a consumer script to periodically write Kafka data to a database
+    - Adds durability and decouples live streaming from storage
+
+3. Enhanced dashboard analytics
+    - Add charts for hourly averages, volatility tracking, or percentage changes
+    - Use a cached data layer or in-memory aggregation for smoother updates
+
+4. Containerize the full workflow (producer + dashboard)
+    - Ensures full portability across machines using Docker Compose or Kubernetes
+
+5. Implement alerting
+    - Stream real-time price thresholds to trigger alerts (email, Slack, etc)
+
+---
+
 ## Setup Instructions
 
 ### 1. Clone the repository
